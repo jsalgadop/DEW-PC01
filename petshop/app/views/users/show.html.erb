@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Dni:</b>
+  <%= @user.dni %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%= @user.telephone %>
+</p>
+
+<p>
+  <b>Rest:</b>
+  <%= @user.rest %>
+</p>
+
+<p>
+  <b>Difference:</b>
+  <%= @user.rest - @user.pays.sum(:amount) %>
+</p>
+
+
+<table>
+	<caption>Listing Pets</caption>
+
+	<% @user.pets.each do |pet| %>
+	<tr>
+		<td>
+			<%= pet.name %>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+<p>
+  <b>Total pets:</b>
+  <%= @user.pets.count %>
+</p>
+
+
+<table>
+  <caption>Listing Pays</caption>
+
+  <% @user.pays.each do |pay| %>
+  <tr>
+    <td>
+      <%= pay.amount %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
